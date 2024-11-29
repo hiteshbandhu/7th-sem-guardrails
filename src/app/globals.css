@@ -1,21 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --primary-100: #081219;
+  --primary-200: #102331; 
+  --primary-300: #18354a;
+  --primary-400: #204763;
+  --primary-500: #28587b; /* Lapis Lazuli - Primary Brand Color */
+  --primary-600: #397eb0;
+  --primary-700: #62a0cc;
+  --primary-800: #96c0dd;
+  --primary-900: #cbdfee;
+
+  /* Neutral Colors */
+  --neutral-100: #181725;
+  --neutral-200: #302e4b;
+  --neutral-300: #474570;
+  --neutral-400: #5f5b95;
+  --neutral-500: #7f7caf; /* Cool Gray */
+  --neutral-600: #9a97bf;
+  --neutral-700: #b3b1cf;
+  --neutral-800: #cccbdf;
+  --neutral-900: #e6e5ef;
+
+  /* Background Colors */
+  --background-100: #000063;
+  --background-200: #0000c6;
+  --background-300: #2a2aff;
+  --background-400: #8d8dff;
+  --background-500: #eeeeff; /* Lavender */
+  --background-600: #f3f3ff;
+  --background-700: #f6f6ff;
+  --background-800: #f9f9ff;
+  --background-900: #fcfcff;
+
+  /* Accent Colors */
+  --accent-blue-500: #9fb4c7; /* Powder Blue */
+  --accent-green-500: #9fb798; /* Cambridge Blue */
+
+  /* Semantic Colors */
+  --background: var(--background-500);
+  --foreground: var(--primary-500);
+  --muted: var(--neutral-500);
+  --accent: var(--accent-blue-500);
+
+  /* Font Families */
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--primary-500);
+    --foreground: var(--background-500);
+    --muted: var(--neutral-600);
+    --accent: var(--accent-blue-600);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    @apply text-foreground bg-background antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
 }
