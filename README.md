@@ -1,44 +1,75 @@
 # hit.rails
 
-AI Guardrails for LLM Applications - Add safety rails to your LLM-powered applications with prompt filtering and output safety checks.
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/b81b5cbe-d570-4a12-8470-754667646720" alt="hit.rails Guardrails Visualization">
+</div>
 
-![image](https://github.com/user-attachments/assets/b81b5cbe-d570-4a12-8470-754667646720)
+## AI Guardrails for LLM Applications
 
-#### What are guardrails and how is this built ? and what if you wanna do this manually yourself ?
+### Overview
 
-These are two links to help you out : 
-https://eager-sandalwood-9bd.notion.site/Guardrail-Project-Overview-and-Architecture-14d20346f7f380aebfabd24e6e51ce56
-https://blog.hiteshbandhu.xyz/blog/save-money-using-guardrails
-## Features
+hit.rails provides a comprehensive security solution for Large Language Model (LLM) applications, offering advanced protection mechanisms to mitigate risks and ensure responsible AI interactions.
 
-- **Prompt Filtering**: Prevent harmful or unwanted prompts from reaching your LLM by:
-  - Detecting and blocking toxic content
-  - Identifying sensitive information
-  - Filtering out malicious prompts
-  - Custom filtering rules and policies
+### Features
 
-- **Safe Outputs**: Validate and sanitize LLM responses before they reach your users by:
-  - Checking for harmful or inappropriate content
-  - Removing personally identifiable information (PII)
-  - Ensuring output format compliance
-  - Content moderation and filtering
+#### Prompt Filtering
+Protect your application with intelligent input screening:
+- Detect and block toxic content
+- Identify sensitive information
+- Filter out malicious prompts
+- Implement custom filtering rules and policies
 
-- **Easy Integration**: Simple API endpoints to add safety checks to your existing LLM applications
-- **Customizable Rules**: Define your own filtering criteria and safety policies
-- **Real-time Processing**: Fast response times with minimal latency overhead
-- **Detailed Logging**: Track and monitor filtered content and safety violations
+#### Output Safety
+Ensure responsible and secure AI responses:
+- Validate and sanitize LLM outputs
+- Remove personally identifiable information (PII)
+- Enforce content moderation
+- Ensure output format compliance
 
-## Getting Started
+### Key Benefits
 
-### Prerequisites
+- **Seamless Integration**: Simple API endpoints
+- **Customizable**: Define your own safety rules
+- **Real-time Processing**: Minimal latency overhead
+- **Comprehensive Logging**: Track and monitor safety violations
 
-- Node.js 18+ 
+### Technical Requirements
+
+- Node.js 18+
 - npm, yarn, or pnpm
-- X_AI API key (for LLM integration)
+- X_AI API key for LLM integration
 
-### Installation
+### Quick Start
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/hiteshbandhu/7th-sem-guardrails.git
-   ```
+#### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/hiteshbandhu/7th-sem-guardrails.git
+
+# Navigate to the project directory
+cd 7th-sem-guardrails
+
+# Install dependencies
+npm install
+```
+
+### Additional Resources
+
+For in-depth understanding and implementation strategies, refer to:
+- [Guardrail Project Overview and Architecture](https://eager-sandalwood-9bd.notion.site/Guardrail-Project-Overview-and-Architecture-14d20346f7f380aebfabd24e6e51ce56)
+- [Cost-Effective Guardrail Strategies](https://blog.hiteshbandhu.xyz/blog/save-money-using-guardrails)
+
+### Getting Help
+
+For support, questions, or collaboration opportunities, please [open an issue](https://github.com/hiteshbandhu/7th-sem-guardrails/issues) on our GitHub repository.
+
+### License
+
+[Insert License Information]
+
+---
+
+<div align="center">
+  <strong>Secure Your AI. Empower Your Applications.</strong>
+</div>
