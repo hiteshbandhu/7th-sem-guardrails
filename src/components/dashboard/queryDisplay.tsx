@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { RiCloseLine } from 'react-icons/ri'
+import { RiFileCopyLine } from 'react-icons/ri' // Added copy icon
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
@@ -14,6 +15,7 @@ interface QueryDisplayProps {
 
 export default function QueryDisplay({ isOpen, onClose, prompt }: QueryDisplayProps) {
   const [activeProvider, setActiveProvider] = useState<'openai' | 'anthropic'>('openai')
+  const [copySuccess, setCopySuccess] = useState(false)
 
   if (!isOpen || !prompt) return null
 
@@ -68,6 +70,13 @@ export async function POST(req: Request) {
   return Response.json({ result: message.content[0].text })
 }`
 
+  const handleCopy = async () => {
+    const codeToCopy = activeProvider === 'openai' ? openaiCode : anthropicCode
+    await navigator.clipboard.writeText(codeToCopy)
+    setCopySuccess(true)
+    setTimeout(() => setCopySuccess(false), 2000)
+  }
+
   return (
     <AnimatePresence>
       <motion.div
@@ -121,19 +130,42 @@ export async function POST(req: Request) {
 
           {/* Content */}
           <div className="flex-1 overflow-auto p-6">
-            <SyntaxHighlighter
-              language="typescript"
-              style={atomOneDark}
-              customStyle={{
-                background: 'var(--background-900)',
-                padding: '2rem',
-                borderRadius: '1rem',
-                fontSize: '0.95rem'
-              }}
-            >
-              {activeProvider === 'openai' ? openaiCode : anthropicCode}
-            </SyntaxHighlighter>
+            <div className="relative">
+              <button
+                onClick={handleCopy}
+                className="absolute top-4 right-4 p-2 bg-[var(--background-800)] rounded-lg text-[var(--primary-300)] hover:text-[var(--primary-200)] transition-colors"
+                title={copySuccess ? 'Copied!' : 'Copy code'}
+              >
+                <RiFileCopyLine size={20} />
+              </button>
+              <SyntaxHighlighter
+                language="typescript"
+                style={atomOneDark}
+                customStyle={{
+                  background: 'var(--background-900)',
+                  padding: '2rem',
+                  borderRadius: '1rem',
+                  fontSize: '0.95rem'
+                }}
+              >
+                {activeProvider === 'openai' ? openaiCode : anthropicCode}
+              </SyntaxHighlighter>
+            </div>
           </div>
+
+          {/* Toast Notification */}
+          <AnimatePresence>
+            {copySuccess && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                className="fixed bottom-4 right-4 bg-[var(--primary-400)] text-[var(--background-900)] px-4 py-2 rounded-lg shadow-lg"
+              >
+                Code copied to clipboard!
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </motion.div>
     </AnimatePresence>
