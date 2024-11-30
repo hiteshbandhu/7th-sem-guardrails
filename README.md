@@ -2,6 +2,9 @@
 
 AI Guardrails for LLM Applications - Add safety rails to your LLM-powered applications with prompt filtering and output safety checks.
 
+![image](https://github.com/user-attachments/assets/b81b5cbe-d570-4a12-8470-754667646720)
+
+
 ## Features
 
 - **Prompt Filtering**: Prevent harmful or unwanted prompts from reaching your LLM by:
