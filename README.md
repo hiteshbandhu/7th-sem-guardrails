@@ -4,7 +4,11 @@ AI Guardrails for LLM Applications - Add safety rails to your LLM-powered applic
 
 ![image](https://github.com/user-attachments/assets/b81b5cbe-d570-4a12-8470-754667646720)
 
+#### What are guardrails and how is this built ? and what if you wanna do this manually yourself ?
 
+These are two links to help you out : 
+https://eager-sandalwood-9bd.notion.site/Guardrail-Project-Overview-and-Architecture-14d20346f7f380aebfabd24e6e51ce56
+https://blog.hiteshbandhu.xyz/blog/save-money-using-guardrails
 ## Features
 
 - **Prompt Filtering**: Prevent harmful or unwanted prompts from reaching your LLM by:
